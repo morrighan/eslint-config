@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "strict": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+    },
+    "files": [
+        "index.js"
+    ]
+}

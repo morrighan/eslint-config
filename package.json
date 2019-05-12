@@ -1,0 +1,51 @@
+{
+    "name": "@cichol/eslint-config",
+    "version": "1.1.0",
+    "description": "Own ESLint configuration. It handle both JavaScript, TypeScript and JSX for React.",
+    "homepage": "https://github.com/morrighan/eslint-config",
+    "bugs": {
+        "url": "https://github.com/morrighan/eslint-config/issues"
+    },
+    "license": "UNLICENSED",
+    "author": {
+        "name": "Yongbin Min",
+        "email": "contact@cichol.com",
+        "url": "https://www.cichol.com/"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/morrighan/eslint-config.git"
+    },
+    "scripts": {
+        "test": "npx eslint ."
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin-tslint": "^1.8.0",
+        "@typescript-eslint/parser": "^1.8.0",
+        "eslint-plugin-eslint-comments": "^3.1.1",
+        "eslint-plugin-import": "^2.17.2",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-node": "^9.0.1",
+        "eslint-plugin-promise": "^4.1.1",
+        "eslint-plugin-react": "^7.13.0",
+        "eslint-plugin-security": "^1.4.0",
+        "tslint": "^5.16.0",
+        "tslint-microsoft-contrib": "^6.1.1"
+    },
+    "devDependencies": {
+        "eslint": "^5.16.0",
+        "typescript": "^3.4.5"
+    },
+    "peerDependencies": {
+        "eslint": "^5.16.0",
+        "typescript": "^3.4.1"
+    },
+    "engines": {
+        "node": "^10.15.3",
+        "npm": "^6.9.0"
+    },
+    "publishConfig": {
+        "registry": "https://npm.cichol.com/"
+    }
+}
