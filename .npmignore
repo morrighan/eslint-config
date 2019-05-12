@@ -1,0 +1,6 @@
+# Unnecessary files
+.*
+
+# Local TypeScript configuration
+tsconfig.json
+tslint.json
