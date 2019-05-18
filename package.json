@@ -1,6 +1,6 @@
 {
     "name": "@cichol/eslint-config",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Own ESLint configuration. It handle both JavaScript, TypeScript and JSX for React.",
     "homepage": "https://github.com/morrighan/eslint-config",
     "bugs": {
