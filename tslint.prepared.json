@@ -18,8 +18,6 @@
         ],
         "no-angle-bracket-type-assertion": true,
         "no-banned-terms": true,
-        "no-constant-condition": true,
-        "no-control-regex": true,
         "no-cookies": true,
         "no-delete-expression": true,
         "no-exec-script": true,
@@ -31,9 +29,7 @@
             "http://localhost:?.*"
         ],
         "no-inner-html": true,
-        "no-invalid-regexp": true,
         "no-octal-literal": true,
-        "no-regex-spaces": true,
         "no-string-based-set-immediate": true,
         "no-string-based-set-interval": true,
         "no-string-based-set-timeout": true,
