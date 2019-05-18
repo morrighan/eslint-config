@@ -844,7 +844,16 @@ const createBaseConfiguration = () => ({
         'import/ignore': [ 'node_modules', '\\.(scss|css|svg|json)$' ],
         'import/core-modules': [],
         'import/resolver': { node: { extensions: [ '.mjs', '.js', '.ts', '.json' ] } }
-    }
+    },
+
+    overrides: [ {
+        files: [ '*.ts', '*.tsx' ],
+
+        rules: {
+            // for TypeScript method overloading.
+            'no-dupe-class-members': 'off'
+        }
+    } ]
 });
 
 // Exporting.
