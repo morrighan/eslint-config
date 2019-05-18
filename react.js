@@ -214,6 +214,10 @@ const reactSpecificRules = {
 
     'react/jsx-props-no-multi-spaces': 'error',
 
+    'react-hooks/rules-of-hooks': 'error',
+
+    'react-hooks/exhaustive-deps': 'warn',
+
     'jsx-a11y/anchor-has-content': [ 'error', { components: [] } ],
 
     'jsx-a11y/aria-role': [ 'error', { ignoreNonDom: false } ],
@@ -329,7 +333,7 @@ const createReactConfiguration = () => {
         ...base,
 
         parserOptions: { ...base.parserOptions, jsx: true },
-        plugins: [ ...base.plugins, 'react', 'jsx-a11y' ],
+        plugins: [ ...base.plugins, 'react', 'react-hooks', 'jsx-a11y' ],
         rules: { ...base.rules, ...javascriptRules, ...reactSpecificRules },
 
         settings: {
