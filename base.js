@@ -793,7 +793,7 @@ const javascriptRules = {
         'error',
         'always',
         {
-            line: { exceptions: [ '-', '+' ], markers: [ '=', '!' ] },
+            line: { exceptions: [ '/', '-', '+' ], markers: [ '=', '!' ] },
             block: { exceptions: [ '-', '+' ], markers: [ '=', '!' ], balanced: true }
         }
     ],
