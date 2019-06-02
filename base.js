@@ -839,13 +839,6 @@ const createBaseConfiguration = () => ({
     plugins: [ '@typescript-eslint/tslint', 'import', 'promise', 'security' ],
     rules: { ...typescriptRules, ...javascriptRules },
 
-    settings: {
-        'import/extensions': [ '.mjs', '.js', '.ts', '.json' ],
-        'import/ignore': [ 'node_modules', '\\.(scss|css|svg|json)$' ],
-        'import/core-modules': [],
-        'import/resolver': { node: { extensions: [ '.mjs', '.js', '.ts', '.json' ] } }
-    },
-
     overrides: [ {
         files: [ '*.ts', '*.tsx' ],
 
@@ -853,7 +846,14 @@ const createBaseConfiguration = () => ({
             // for TypeScript method overloading.
             'no-dupe-class-members': 'off'
         }
-    } ]
+    } ],
+
+    settings: {
+        'import/extensions': [ '.mjs', '.js', '.ts', '.json' ],
+        'import/ignore': [ 'node_modules', '\\.(scss|css|svg|json)$' ],
+        'import/core-modules': [],
+        'import/resolver': { node: { extensions: [ '.mjs', '.js', '.ts', '.json' ] } }
+    }
 });
 
 // Exporting.
