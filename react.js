@@ -336,7 +336,7 @@ const createReactConfiguration = () => {
         plugins: [ ...base.plugins, 'react', 'react-hooks', 'jsx-a11y' ],
         rules: { ...base.rules, ...javascriptRules, ...reactSpecificRules },
 
-        overrides: [ {
+        overrides: [ ...base.overrides, {
             files: [ '*.tsx' ],
 
             rules: {
