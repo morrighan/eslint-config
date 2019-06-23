@@ -844,6 +844,7 @@ const createBaseConfiguration = () => ({
 
         rules: {
             // for TypeScript method overloading.
+            'import/export': 'off',
             'no-dupe-class-members': 'off'
         }
     } ],
