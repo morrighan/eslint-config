@@ -1,6 +1,6 @@
 {
     "name": "@cichol/eslint-config",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "description": "Own ESLint configuration. It handle both JavaScript, TypeScript and JSX for React.",
     "homepage": "https://github.com/morrighan/eslint-config",
     "bugs": {
@@ -21,15 +21,15 @@
         "test": "npx eslint ."
     },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin-tslint": "^1.10.2",
-        "@typescript-eslint/parser": "^1.10.2",
+        "@typescript-eslint/eslint-plugin-tslint": "^1.11.0",
+        "@typescript-eslint/parser": "^1.11.0",
         "eslint-plugin-eslint-comments": "^3.1.2",
-        "eslint-plugin-import": "^2.17.3",
-        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-jsx-a11y": "^6.2.2",
         "eslint-plugin-node": "^9.1.0",
-        "eslint-plugin-promise": "^4.1.1",
-        "eslint-plugin-react": "^7.13.0",
-        "eslint-plugin-react-hooks": "^1.6.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-react": "^7.14.2",
+        "eslint-plugin-react-hooks": "^1.6.1",
         "eslint-plugin-security": "^1.4.0",
         "tslint": "^5.18.0",
         "tslint-microsoft-contrib": "^6.2.0"
