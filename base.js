@@ -8,7 +8,7 @@ const tslintConfigPath = path.resolve(__dirname, 'tslint.json');
 if (!exists(tslintConfigPath)) {
     const preparedConfig = Object.assign(
         JSON.parse(readFile(path.resolve(__dirname, 'tslint.prepared.json'))),
-        { rulesDirectory: path.dirname(require.resolve('tslint-microsoft-contrib/package.json')) },
+        { rulesDirectory: path.dirname(require.resolve('tslint-microsoft-contrib/package.json')) }
     );
 
     writeFile(tslintConfigPath, JSON.stringify(preparedConfig, undefined, 4));
@@ -827,7 +827,7 @@ const createBaseConfiguration = () => ({
     env: { es6: true, node: true },
 
     parser: '@typescript-eslint/parser',
-    parserOptions: { ecmaVersion: 2018, sourceType: 'module', warnOnUnsupportedTypeScriptVersion: false },
+    parserOptions: { ecmaVersion: 2018, sourceType: 'module' },
 
     extends: [
         'plugin:node/recommended',
