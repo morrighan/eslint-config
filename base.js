@@ -695,6 +695,7 @@ const javascriptRules = {
 
     'node/exports-style': [ 'error', 'module.exports' ],
 
+    'node/no-missing-import': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
 
     'node/prefer-global/buffer': [ 'error', 'never' ],
