@@ -825,10 +825,10 @@ const javascriptRules = {
 };
 
 const createBaseConfiguration = () => ({
-    env: { es6: true, node: true },
+    env: { es2020: true, node: true },
 
     parser: '@typescript-eslint/parser',
-    parserOptions: { ecmaVersion: 2018, sourceType: 'module' },
+    parserOptions: { sourceType: 'module' },
 
     extends: [
         'plugin:node/recommended',
