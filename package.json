@@ -1,6 +1,6 @@
 {
     "name": "@morrighan/eslint-config",
-    "version": "1.5.2",
+    "version": "1.5.3",
     "description": "Own ESLint configuration. It handle both JavaScript, TypeScript and JSX for React.",
     "homepage": "https://github.com/morrighan/eslint-config",
     "bugs": {
@@ -31,11 +31,11 @@
         "eslint-plugin-react": "^7.18.3",
         "eslint-plugin-react-hooks": "^2.4.0",
         "eslint-plugin-security": "^1.4.0",
+        "tslint": "^5.20.1",
         "tslint-microsoft-contrib": "^6.2.0"
     },
     "devDependencies": {
         "eslint": "^6.8.0",
-        "tslint": "^5.20.1",
         "typescript": "^3.8.2"
     },
     "peerDependencies": {
