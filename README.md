@@ -5,7 +5,7 @@ Own [ESLint][eslint] configuration. It handle both JavaScript, TypeScript and JS
 ## Requisites
 
 - ESLint `^6.8.0`
-- TypeScript `^3.7.4`
+- TypeScript `^3.8.2`
 
 ## Containing plugins
 
