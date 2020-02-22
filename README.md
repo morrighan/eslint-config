@@ -1,4 +1,4 @@
-# `@cichol/eslint-config`
+# `@morrighan/eslint-config`
 
 Own [ESLint][eslint] configuration. It handle both JavaScript, TypeScript and JSX for React.
 
