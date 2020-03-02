@@ -16,6 +16,16 @@ if (!exists(tslintConfigPath)) {
 
 // Rules.
 const typescriptRules = {
+    '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        {
+            assertionStyle: 'as',
+            objectLiteralTypeAssertions: 'allow'
+        }
+    ],
+
+    '@typescript-eslint/interface-name-prefix': 'error',
+
     '@typescript-eslint/tslint/config': [ 'error', { lintFile: tslintConfigPath } ]
 };
 
@@ -85,6 +95,8 @@ const javascriptRules = {
     'func-call-spacing': [ 'error', 'never' ],
 
     'func-names': 'warn',
+
+    'func-style': [ 'error', 'declaration', { allowArrowFunctions: true } ],
 
     'function-paren-newline': [ 'error', 'consistent' ],
 
@@ -308,6 +320,8 @@ const javascriptRules = {
             ignoreTrailingComments: true
         }
     ],
+
+    'max-statements': [ 'error', 100, { ignoreTopLevelFunctions: true } ],
 
     'new-cap': [
         'error',
@@ -620,6 +634,14 @@ const javascriptRules = {
         {
             selector: 'WithStatement',
             message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
+        },
+        {
+            selector: 'MemberExpression[object.name="document"][property.name="cookie"]',
+            message: 'Do not use cookies.'
+        },
+        {
+            selector: 'CallExpression[name="execScript"]',
+            message: 'Do not use the execScript functions.'
         }
     ],
 
@@ -688,6 +710,8 @@ const javascriptRules = {
     'no-var': 'error',
 
     'no-void': 'error',
+
+    'no-warning-comments': [ 'error', { terms: [ 'BUG', 'HACK', 'FIXME', 'LATER', 'LATER2', 'TODO' ], location: 'anywhere' } ],
 
     'no-whitespace-before-property': 'error',
 
@@ -774,6 +798,12 @@ const javascriptRules = {
 
     'security/detect-object-injection': 'off',
 
+    'security/detect-non-literal-fs-filename': 'error',
+
+    'security/detect-non-literal-require': 'error',
+
+    'security/detect-possible-timing-attacks': 'error',
+
     semi: [ 'error', 'always' ],
 
     'semi-spacing': [ 'error', { before: false, after: true } ],
@@ -837,7 +867,7 @@ const createBaseConfiguration = () => ({
         'plugin:eslint-comments/recommended'
     ],
 
-    plugins: [ '@typescript-eslint/tslint', 'import', 'promise', 'security' ],
+    plugins: [ '@typescript-eslint', '@typescript-eslint/tslint', 'import', 'promise', 'security' ],
     rules: { ...typescriptRules, ...javascriptRules },
 
     overrides: [ {
@@ -845,7 +875,13 @@ const createBaseConfiguration = () => ({
 
         rules: {
             // for TypeScript method overloading.
-            'no-dupe-class-members': 'off'
+            'no-dupe-class-members': 'off',
+
+            // for TypeScript module augmentation.
+            'import/export': 'off',
+            'import/no-mutable-exports': 'off',
+            'import/no-named-as-default': 'off',
+            'no-redeclare': 'off'
         }
     } ],
 
