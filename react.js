@@ -336,14 +336,18 @@ const createReactConfiguration = () => {
         plugins: [ ...base.plugins, 'react', 'react-hooks', 'jsx-a11y' ],
         rules: { ...base.rules, ...javascriptRules, ...reactSpecificRules },
 
-        overrides: [ {
-            files: [ '*.tsx' ],
+        overrides: [
+            ...base.overrides,
 
-            rules: {
+            {
+                files: [ '*.tsx' ],
+
+                rules: {
                 // use TypeScript's type annotation.
-                'react/prop-types': 'off'
+                    'react/prop-types': 'off'
+                }
             }
-        } ],
+        ],
 
         settings: {
             ...base.settings,
