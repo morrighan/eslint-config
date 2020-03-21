@@ -1,23 +1,62 @@
-# `@morrighan/eslint-config`
+# `@cichol/eslint-config`
 
-Own [ESLint][eslint] configuration. It handle both JavaScript, TypeScript and JSX for React.
+An universal ESLint configuration for personal projects.
+
+## Table of Contents
+
+- [`@cichol/eslint-config`](#cicholeslint-config)
+  - [Table of Contents](#table-of-contents)
+  - [Requisites](#requisites)
+  - [Installation](#installation)
+  - [Use cases](#use-cases)
+    - [JavaScript and TypeScript](#javascript-and-typescript)
+    - [With React](#with-react)
+  - [Contained presets and plugins](#contained-presets-and-plugins)
 
 ## Requisites
 
 - ESLint `^6.8.0`
-- TypeScript `^3.8.2`
+- TypeScript `^3.8.3`
 
-## Containing plugins
+## Installation
 
-- [eslint-plugin-import][eslint-plugin-import]
-- [eslint-plugin-node][eslint-plugin-node]
-- [eslint-plugin-promise][eslint-plugin-promise]
-- [eslint-plugin-security][eslint-plugin-security]
-- [eslint-plugin-eslint-comments][eslint-plugin-eslint-comments]
-- [eslint-plugin-react][eslint-plugin-react]
-- [eslint-plugin-jsx-a11y][eslint-plugin-jsx-a11y]
+```sh
+$
+```
+
+## Use cases
+
+### JavaScript and TypeScript
+
+```json
+{
+    "extends": "@cichol/eslint-config"
+}
+```
+
+### With React
+
+```json
+{
+    "extends": "@cichol/eslint-config/react"
+}
+```
+
+## Contained presets and plugins
+
+- Presets
+  - [eslint-preset-airbnb][eslint-preset-airbnb]
+- Plugins
+  - [eslint-plugin-import][eslint-plugin-import]
+  - [eslint-plugin-node][eslint-plugin-node]
+  - [eslint-plugin-promise][eslint-plugin-promise]
+  - [eslint-plugin-security][eslint-plugin-security]
+  - [eslint-plugin-eslint-comments][eslint-plugin-eslint-comments]
+  - [eslint-plugin-react][eslint-plugin-react]
+  - [eslint-plugin-jsx-a11y][eslint-plugin-jsx-a11y]
 
 [eslint]: https://eslint.org/
+[eslint-preset-airbnb]: https://www.npmjs.com/package/eslint-preset-airbnb
 [eslint-plugin-import]: https://www.npmjs.com/package/eslint-plugin-import
 [eslint-plugin-node]: https://www.npmjs.com/package/eslint-plugin-node
 [eslint-plugin-promise]: https://www.npmjs.com/package/eslint-plugin-promise

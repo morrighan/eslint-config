@@ -1,6 +1,10 @@
 # Unnecessary files
 .*
 
-# Local TypeScript configuration
+# Local configurations
+babel.config.js
 tsconfig.json
 tslint.json
+
+# Not for production
+tests

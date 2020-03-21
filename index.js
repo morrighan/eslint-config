@@ -1,16 +1,5 @@
-// Configuration creators.
-const createBaseConfiguration = require('./base');
-const { createReactConfiguration } = require('./react');
-
-// Configuration.
-const configuration = createBaseConfiguration();
-
-Reflect.defineProperty(configuration, 'configurate', {
-    value: ({ react = false } = {}) => (react ? createReactConfiguration() : createBaseConfiguration()),
-    writable: true,
-    enumerable: false,
-    configurable: true
-});
+// Base configuration.
+const createConfiguration = require('./base');
 
 // Exporting.
-module.exports = configuration;
+module.exports = createConfiguration();
