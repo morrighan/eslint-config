@@ -2,8 +2,8 @@
 const createConfiguration = require('./base');
 
 // Local rules.
-const rulesForJSX = require('./rules/javascript-react');
-const rulesForTSX = require('./rules/typescript-react');
+const configForJSX = require('./configs/javascript-react');
+const { rules: rulesForTSX } = require('./configs/typescript-react');
 
 // Local helpers.
 const { replaceOnMerge, keepOnMerge } = require('./helpers/merger');
@@ -14,10 +14,9 @@ const extensions = [ '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json' ];
 // Exporting.
 module.exports = createConfiguration({
     extends: [
-        replaceOnMerge({ from: 'airbnb-base', to: [ 'airbnb', 'airbnb/hooks' ] })
+        replaceOnMerge({ from: 'airbnb-base', to: [ 'airbnb', 'airbnb/hooks' ] }),
+        configForJSX
     ],
-
-    rules: rulesForJSX,
 
     overrides: [ {
         files: [ '*.tsx' ],
