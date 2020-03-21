@@ -1,13 +1,10 @@
-// Local helpers.
-const { keepOnMerge } = require('../helpers/merger');
-
 /**
  * ESLint rules for JavaScript files with React.
  *
  * @type {import('eslint').Linter.RulesRecord}
  */
 module.exports = {
-    'import/extensions': keepOnMerge([ 'error', 'ignorePackages', { mjs: 'never', js: 'never', jsx: 'never', ts: 'never', tsx: 'never' } ]),
+    'import/extensions': [ 'error', 'ignorePackages', { mjs: 'never', js: 'never', jsx: 'never', ts: 'never', tsx: 'never' } ],
 
     'react/jsx-indent-props': [ 'error', 4 ],
 
