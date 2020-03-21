@@ -1,6 +1,6 @@
 // Local rules.
-const rulesForJavaScript = require('./rules/javascript');
-const rulesForTypeScript = require('./rules/typescript');
+const { rules: rulesForJavaScript } = require('./configs/javascript');
+const { rules: rulesForTypeScript } = require('./configs/typescript');
 
 // Local helpers.
 const { merge } = require('./helpers/merger');
