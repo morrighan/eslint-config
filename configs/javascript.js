@@ -26,7 +26,7 @@ module.exports = {
 
         'func-style': [ 'error', 'declaration', { allowArrowFunctions: true } ],
 
-        'import/extensions': [ 'error', 'ignorePackages', { js: 'never', mjs: 'never', ts: 'never' } ],
+        'import/extensions': [ 'error', 'ignorePackages', { mjs: 'never', js: 'never', jsx: 'never', ts: 'never', tsx: 'never' } ],
 
         'import/max-dependencies': 'off',
 
