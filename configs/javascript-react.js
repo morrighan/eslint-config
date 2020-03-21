@@ -5,8 +5,6 @@
  */
 module.exports = {
     rules: {
-        'import/extensions': [ 'error', 'ignorePackages', { mjs: 'never', js: 'never', jsx: 'never', ts: 'never', tsx: 'never' } ],
-
         'react/jsx-indent-props': [ 'error', 4 ],
 
         'react/no-multi-comp': [ 'error', { ignoreStateless: true } ],
