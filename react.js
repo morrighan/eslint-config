@@ -2,7 +2,7 @@
 const createConfiguration = require('./base');
 
 // Local rules.
-const configForJSX = require('./configs/javascript-react');
+const configForJSX = require.resolve('./configs/javascript-react');
 const { rules: rulesForTSX } = require('./configs/typescript-react');
 
 // Local helpers.
