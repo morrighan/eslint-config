@@ -24,10 +24,5 @@
         "use-named-parameter": true,
         "use-simple-attributes": true,
         "void-zero": true
-    },
-    "linterOptions": {
-        "exclude": [
-            "**/*.js"
-        ]
     }
 }
