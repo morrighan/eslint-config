@@ -40,6 +40,7 @@ module.exports = {
                     ...airbnbBase.importsRules['import/no-extraneous-dependencies'][1].devDependencies,
 
                     'configs/**',
+                    'scripts/**',
                     '**/babel.config.js'
                 ],
 
