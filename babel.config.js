@@ -1,9 +1,19 @@
-// Babel configuration.
-const presets = Object.entries({
-    '@babel/preset-env': { targets: { node: 'current' } },
-    '@babel/preset-typescript': {}
-});
+/**
+ * @param {import('@babel/core').ConfigAPI} API
+ * @returns {import('@babel/core').TransformOptions}
+ */
+function configureBabel(API) {
+    API.assertVersion('^7.9.0');
+    API.cache.never();
 
-const plugins = Object.entries({});
+    return {
+        presets: [
+            [ '@babel/preset-env', { targets: { node: 'current' } } ],
+            [ '@babel/preset-typescript', {} ]
+        ],
 
-module.exports = { presets, plugins };
+        plugins: []
+    };
+}
+
+module.exports = configureBabel;

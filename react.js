@@ -1,30 +1,41 @@
-// Base configuration.
-const createConfiguration = require('./base');
+// Local helpers.
+const createConfiguration = require('./helpers/configuration-creator');
 
-// Local rules.
-const configForJSX = require.resolve('./configs/javascript-react');
-const { rules: rulesForTSX } = require('./configs/typescript-react');
+// Configuration fragments.
+const configurationPathForJSX = require.resolve('./fragments/javascript-react');
+const { rules: rulesForTSX } = require('./fragments/typescript-react');
 
 // Local helpers.
-const { replaceOnMerge, keepOnMerge } = require('./helpers/merger');
+const { merge, replaceOnMerge, keepOnMerge } = require('./helpers/object-merger');
 
 // Constants.
 const extensions = [ '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json' ];
 
+/**
+ * @returns {import('eslint').Linter.Config}
+ */
+function createConfigurate() {
+    const baseConfiguration = createConfiguration();
+
+    const configurationOverridenForUsingReact = {
+        extends: [
+            replaceOnMerge({ from: 'airbnb-base', to: 'airbnb' }),
+            configurationPathForJSX
+        ],
+
+        overrides: [ {
+            files: [ '*.tsx' ],
+            rules: rulesForTSX
+        } ],
+
+        settings: {
+            'import/extensions': keepOnMerge(extensions),
+            'import/resolver': { node: { extensions: keepOnMerge(extensions) } }
+        }
+    };
+
+    return merge(baseConfiguration, configurationOverridenForUsingReact);
+}
+
 // Exporting.
-module.exports = createConfiguration({
-    extends: [
-        replaceOnMerge({ from: 'airbnb-base', to: [ 'airbnb', 'airbnb/hooks' ] }),
-        configForJSX
-    ],
-
-    overrides: [ {
-        files: [ '*.tsx' ],
-        rules: rulesForTSX
-    } ],
-
-    settings: {
-        'import/extensions': keepOnMerge(extensions),
-        'import/resolver': { node: { extensions: keepOnMerge(extensions) } }
-    }
-});
+module.exports = createConfigurate();
