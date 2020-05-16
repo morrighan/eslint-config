@@ -13,7 +13,7 @@ function createAdvancedRules(coreRules) {
         advancedRules[ruleName] = 'off';
     }
 
-    return Object.fromEntries(advancedRules);
+    return advancedRules;
 }
 
 // Exporting.
