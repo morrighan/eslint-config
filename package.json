@@ -1,6 +1,6 @@
 {
     "name": "@cichol/eslint-config",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "An universal ESLint configuration for personal projects.",
     "homepage": "https://github.com/morrighan/eslint-config",
     "bugs": {
