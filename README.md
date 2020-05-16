@@ -2,6 +2,8 @@
 
 An universal ESLint configuration for personal projects.
 
+[![Build Status][github actions badge]][github actions][![License][license badge]](LICENSE)[![Package Version][npm package version badge]][npm package]
+
 ## Table of Contents
 
 - [`@cichol/eslint-config`](#cicholeslint-config)
@@ -45,7 +47,8 @@ $ npm install --save-dev @cichol/eslint-config
 ## Contained presets and plugins
 
 - Presets
-  - [eslint-preset-airbnb][eslint-preset-airbnb]
+  - [eslint-config-airbnb][eslint-config-airbnb]
+  - [eslint-config-airbnb-base][eslint-config-airbnb-base]
 - Plugins
   - [eslint-plugin-import][eslint-plugin-import]
   - [eslint-plugin-node][eslint-plugin-node]
@@ -55,8 +58,14 @@ $ npm install --save-dev @cichol/eslint-config
   - [eslint-plugin-react][eslint-plugin-react]
   - [eslint-plugin-jsx-a11y][eslint-plugin-jsx-a11y]
 
+[github actions badge]: https://img.shields.io/github/workflow/status/morrighan/eslint-config/On%20default/develop?style=flat-square
+[github actions]: https://github.com/morrighan/eslint-config/actions
+[license badge]: https://img.shields.io/github/license/morrighan/eslint-config.svg?style=flat-square
+[npm package version badge]: https://img.shields.io/npm/v/@cichol/eslint-config.svg?style=flat-square
+[npm package]: https://www.npmjs.com/package/@cichol/eslint-config
 [eslint]: https://eslint.org/
-[eslint-preset-airbnb]: https://www.npmjs.com/package/eslint-preset-airbnb
+[eslint-config-airbnb]: https://www.npmjs.com/package/eslint-preset-airbnb
+[eslint-config-airbnb-base]: https://www.npmjs.com/package/eslint-config-airbnb-base
 [eslint-plugin-import]: https://www.npmjs.com/package/eslint-plugin-import
 [eslint-plugin-node]: https://www.npmjs.com/package/eslint-plugin-node
 [eslint-plugin-promise]: https://www.npmjs.com/package/eslint-plugin-promise
