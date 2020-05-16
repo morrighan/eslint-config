@@ -1,20 +1,18 @@
-/* eslint-disable global-require */
+/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
+const { rules: bestPracticesRules } = require('eslint-config-airbnb-base/rules/best-practices');
 
 /** @type {Record<string, import('eslint').Linter.RulesRecord>} */
-const airbnbBase = {
-    bestPracticesRules: require('eslint-config-airbnb-base/rules/best-practices').rules,
-    importsRules: require('eslint-config-airbnb-base/rules/imports').rules,
-    styleRules: require('eslint-config-airbnb-base/rules/style').rules
-};
+const { rules: importsRules } = require('eslint-config-airbnb-base/rules/imports');
 
-/* eslint-enable global-require */
+/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
+const { rules: styleRules } = require('eslint-config-airbnb-base/rules/style');
 
 /**
  * ESLint rules for JavaScript files.
  *
  * @type {import('eslint').Linter.Config}
  */
-module.exports = {
+const configurationFragmentForJS = {
     rules: {
         'array-bracket-spacing': [ 'error', 'always' ],
 
@@ -37,7 +35,7 @@ module.exports = {
 
             {
                 devDependencies: [
-                    ...airbnbBase.importsRules['import/no-extraneous-dependencies'][1].devDependencies,
+                    ...importsRules['import/no-extraneous-dependencies'][1].devDependencies,
 
                     'configs/**',
                     'scripts/**',
@@ -48,7 +46,7 @@ module.exports = {
             }
         ],
 
-        indent: [ 'error', 4, { ...airbnbBase.styleRules.indent[2], SwitchCase: 0 } ],
+        indent: [ 'error', 4, { ...styleRules.indent[2], SwitchCase: 0 } ],
 
         'max-len': [
             'error',
@@ -56,7 +54,7 @@ module.exports = {
             4,
 
             {
-                ...airbnbBase.styleRules['max-len'][3],
+                ...styleRules['max-len'][3],
 
                 ignoreComments: true,
                 ignoreTrailingComments: true
@@ -71,7 +69,7 @@ module.exports = {
             'error',
             {
                 ignorePropertyModificationsFor: [
-                    ...airbnbBase.bestPracticesRules['no-param-reassign'][1].ignorePropertyModificationsFor,
+                    ...bestPracticesRules['no-param-reassign'][1].ignorePropertyModificationsFor,
 
                     // For non-abbreviated naming style.
                     'event',
@@ -87,7 +85,7 @@ module.exports = {
 
         'no-restricted-properties': [
             'error',
-            ...airbnbBase.bestPracticesRules['no-restricted-properties'].slice(1),
+            ...bestPracticesRules['no-restricted-properties'].slice(1),
 
             {
                 object: 'document',
@@ -104,7 +102,8 @@ module.exports = {
         'no-restricted-syntax': [
             'error',
 
-            ...airbnbBase.styleRules['no-restricted-syntax'].slice(1)
+            ...styleRules['no-restricted-syntax']
+                .slice(1)
                 .filter(({ selector }) => selector !== 'ForOfStatement'),
 
             {
@@ -116,7 +115,7 @@ module.exports = {
         'no-self-assign': [ 'error', { props: false } ],
 
         'no-warning-comments': [
-            'error',
+            'warn',
 
             {
                 location: 'anywhere',
@@ -166,8 +165,6 @@ module.exports = {
             { enforceForRenamedProperties: false }
         ],
 
-        'promise/no-native': 'error',
-
         'security/detect-non-literal-fs-filename': 'error',
 
         'security/detect-non-literal-require': 'error',
@@ -195,3 +192,6 @@ module.exports = {
         ]
     }
 };
+
+// Exporting.
+module.exports = configurationFragmentForJS;

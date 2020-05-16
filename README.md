@@ -16,12 +16,12 @@ An universal ESLint configuration for personal projects.
 ## Requisites
 
 - ESLint `^6.8.0`
-- TypeScript `^3.8.3`
+- TypeScript `^3.9.2`
 
 ## Installation
 
 ```sh
-$
+$ npm install --save-dev @cichol/eslint-config
 ```
 
 ## Use cases

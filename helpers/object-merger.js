@@ -4,8 +4,7 @@ const lodash = require('lodash');
 // Local helpers.
 const checkEquivalence = require('./equivalence-checker');
 
-/** @typedef {{ from: any; to: any; }} ReplacingContext */
-/** @type {Map<symbol, ReplacingContext>} */
+/** @type {Map<symbol, { from: any; to: any }>} */
 const replacerMap = new Map();
 
 /** @type {Map<symbol, any[]>} */
@@ -51,7 +50,7 @@ function performMerge(destination, source) {
         }
 
         for (const replacerKey of replacerKeys) {
-            /** @type {ReplacingContext} */
+        /** @type {{ from: any; to: any }} */
             const context = replacerMap.get(replacerKey);
 
             replacerMap.delete(replacerKey);
@@ -68,7 +67,7 @@ function performMerge(destination, source) {
         return concatenated;
     }
 
-    // Use Lodash's default.
+    // Use Lodash's default action.
     default: {
         return undefined;
     }
@@ -79,18 +78,22 @@ function merge(destination, ...sources) {
     return lodash.mergeWith(destination, ...sources, performMerge);
 }
 
-/** Use this function if some element has to be replaced on merging. */
+/**
+ * Use this function if some element has to be replaced on merging.
+ */
 function replaceOnMerge(context) {
-    const delegateSymbol = Symbol('@cichol/eslint-config::helpers/merger::Replacer');
+    const delegateSymbol = Symbol('eslint-config-hpcnt::helpers/object-merger::Replacer');
 
     replacerMap.set(delegateSymbol, context);
 
     return delegateSymbol;
 }
 
-/** Use this function if a given array should be applied as-is to merged object. */
+/**
+ * Use this function if a given array should be applied as-is to merged object.
+ */
 function keepOnMerge(array) {
-    const delegateSymbol = Symbol('@cichol/eslint-config::helpers/merger::Keeper');
+    const delegateSymbol = Symbol('eslint-config-hpcnt::helpers/object-merger::Keeper');
 
     keeperMap.set(delegateSymbol, array);
 
