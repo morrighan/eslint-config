@@ -1,16 +1,6 @@
-// Node.js built-in APIs.
-const { existsSync: exists, readFileSync: readFile, writeFileSync: writeFile } = require('fs');
-const path = require('path');
-
-/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
-const { rules: styleRules } = require('eslint-config-airbnb-base/rules/style');
-
 // Local helpers.
+const airbnbBaseRules = require('../helpers/airbnb-base-rules');
 const createAdvancedRules = require('../helpers/advanced-rules-creator');
-
-// Dynamic generate TSLint configuration in runtime.
-const rootPath = path.resolve(__dirname, '..');
-const tslintConfigPath = path.resolve(rootPath, 'tslint.json');
 
 /** @type {import('eslint').Linter.RulesRecord} */
 const advancedRulesForTS = createAdvancedRules({
@@ -22,7 +12,7 @@ const advancedRulesForTS = createAdvancedRules({
 
     'func-call-spacing': [ 'error', 'never' ],
 
-    indent: [ 'error', 4, { ...styleRules.indent[2], SwitchCase: 0 } ],
+    indent: [ 'error', 4, { ...airbnbBaseRules.indent[2], SwitchCase: 0 } ],
 
     'no-array-constructor': 'error',
 
@@ -63,7 +53,6 @@ const advancedRulesForTS = createAdvancedRules({
     } ]
 });
 
-
 /**
  * ESLint rules for TypeScript files.
  *
@@ -71,8 +60,6 @@ const advancedRulesForTS = createAdvancedRules({
  */
 const configurationFragmentForTS = {
     rules: {
-        '@typescript-eslint/tslint/config': [ 'error', { lintFile: tslintConfigPath } ],
-
         '@typescript-eslint/consistent-type-assertions': [
             'error',
             {
@@ -80,8 +67,6 @@ const configurationFragmentForTS = {
                 objectLiteralTypeAssertions: 'allow'
             }
         ],
-
-        '@typescript-eslint/interface-name-prefix': 'error',
 
         '@typescript-eslint/member-delimiter-style': [ 'error', {
             multiline: { delimiter: 'semi', requireLast: true },
@@ -94,7 +79,23 @@ const configurationFragmentForTS = {
             }
         } ],
 
+        '@typescript-eslint/naming-convention': [
+            'error', {
+                selector: 'interface',
+                format: [ 'PascalCase' ],
+                custom: { regex: '^I[A-Z]', match: false }
+            }
+        ],
+
         '@typescript-eslint/no-explicit-any': 'off',
+
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+
+        '@typescript-eslint/no-unsafe-call': 'off',
+
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+
+        '@typescript-eslint/no-unsafe-return': 'off',
 
         '@typescript-eslint/prefer-optional-chain': 'error',
 
@@ -103,15 +104,6 @@ const configurationFragmentForTS = {
         ...advancedRulesForTS
     }
 };
-
-if (!exists(tslintConfigPath)) {
-    const preparedConfig = Object.assign(
-        JSON.parse(readFile(path.resolve(rootPath, 'tslint.prepared.json'))),
-        { rulesDirectory: path.dirname(require.resolve('tslint-microsoft-contrib/package.json')) }
-    );
-
-    writeFile(tslintConfigPath, JSON.stringify(preparedConfig, undefined, 4));
-}
 
 // Exporting.
 module.exports = configurationFragmentForTS;

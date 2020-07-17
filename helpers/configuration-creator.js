@@ -51,7 +51,7 @@ const configurationForTypeScript = {
             'plugin:@typescript-eslint/recommended-requiring-type-checking'
         ],
 
-        plugins: [ '@typescript-eslint', '@typescript-eslint/tslint' ],
+        plugins: [ '@typescript-eslint' ],
         rules: rulesForTypeScript
     } ]
 };
