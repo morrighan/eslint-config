@@ -1,11 +1,8 @@
-/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
-const { rules: bestPracticesRules } = require('eslint-config-airbnb-base/rules/best-practices');
+// Third-party modules.
+const lodash = require('lodash');
 
-/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
-const { rules: importsRules } = require('eslint-config-airbnb-base/rules/imports');
-
-/** @type {Record<string, import('eslint').Linter.RulesRecord>} */
-const { rules: styleRules } = require('eslint-config-airbnb-base/rules/style');
+// Local helpers.
+const airbnbBaseRules = require('../helpers/airbnb-base-rules');
 
 /**
  * ESLint rules for JavaScript files.
@@ -35,7 +32,7 @@ const configurationFragmentForJS = {
 
             {
                 devDependencies: [
-                    ...importsRules['import/no-extraneous-dependencies'][1].devDependencies,
+                    ...airbnbBaseRules['import/no-extraneous-dependencies'][1].devDependencies,
 
                     'configs/**',
                     'scripts/**',
@@ -46,7 +43,7 @@ const configurationFragmentForJS = {
             }
         ],
 
-        indent: [ 'error', 4, { ...styleRules.indent[2], SwitchCase: 0 } ],
+        indent: [ 'error', 4, { ...airbnbBaseRules.indent[2], SwitchCase: 0 } ],
 
         'max-len': [
             'error',
@@ -54,7 +51,7 @@ const configurationFragmentForJS = {
             4,
 
             {
-                ...styleRules['max-len'][3],
+                ...airbnbBaseRules['max-len'][3],
 
                 ignoreComments: true,
                 ignoreTrailingComments: true
@@ -68,8 +65,8 @@ const configurationFragmentForJS = {
         'no-param-reassign': [
             'error',
             {
-                ignorePropertyModificationsFor: [
-                    ...bestPracticesRules['no-param-reassign'][1].ignorePropertyModificationsFor,
+                ignorePropertyModificationsFor: lodash.union([
+                    ...airbnbBaseRules['no-param-reassign'][1].ignorePropertyModificationsFor,
 
                     // For non-abbreviated naming style.
                     'event',
@@ -77,7 +74,7 @@ const configurationFragmentForJS = {
 
                     // For Fastify.
                     'reply'
-                ],
+                ]),
 
                 props: true
             }
@@ -85,7 +82,7 @@ const configurationFragmentForJS = {
 
         'no-restricted-properties': [
             'error',
-            ...bestPracticesRules['no-restricted-properties'].slice(1),
+            ...airbnbBaseRules['no-restricted-properties'].slice(1),
 
             {
                 object: 'document',
@@ -102,7 +99,7 @@ const configurationFragmentForJS = {
         'no-restricted-syntax': [
             'error',
 
-            ...styleRules['no-restricted-syntax']
+            ...airbnbBaseRules['no-restricted-syntax']
                 .slice(1)
                 .filter(({ selector }) => selector !== 'ForOfStatement'),
 
