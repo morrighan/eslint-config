@@ -11,6 +11,8 @@ module.exports = {
 
         'react/jsx-indent': [ 'error', 4 ],
 
-        'react/jsx-filename-extension': [ 'error', { extensions: [ '.jsx', '.tsx' ] } ]
+        'react/jsx-filename-extension': [ 'error', { extensions: [ '.jsx', '.tsx' ] } ],
+
+        'react/state-in-constructor': [ 'error', 'never' ]
     }
 };
