@@ -9,11 +9,4 @@ describe('@cichol/eslint-config', () => {
             require('..');
         }).not.to.throw();
     });
-
-    it('`react.js` should be parsed without an exception', () => {
-        expect(() => {
-            // eslint-disable-next-line global-require
-            require('../react');
-        }).not.to.throw();
-    });
 });
