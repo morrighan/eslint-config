@@ -15,7 +15,7 @@ An universal ESLint configuration for personal projects.
 
 ## Requisites
 
-- ESLint `^7.24.0`
+- ESLint `^7.26.0`
 - TypeScript `^4.2.4`
 
 ## Installation
