@@ -12,13 +12,6 @@ module.exports = {
     'react/jsx-indent-props': [ 'error', 4 ],
 
     /**
-     * Prevents multiple class component definition per file.
-     *
-     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md}
-     */
-    'react/no-multi-comp': [ 'error', { ignoreStateless: true } ],
-
-    /**
      * Enforces consistent indentation.
      *
      * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md}
@@ -33,9 +26,44 @@ module.exports = {
     'react/jsx-filename-extension': [ 'error', { extensions: [ '.jsx', '.tsx' ] } ],
 
     /**
+     * Prefers to use automatic runtime instead of classic runtime.
+     *
+     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md}
+     */
+    'react/jsx-uses-react': 'off',
+
+    /**
+     * Prevents multiple class component definition per file.
+     *
+     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md}
+     */
+    'react/no-multi-comp': [ 'error', { ignoreStateless: true } ],
+
+    /**
+     * Prefers to use automatic runtime instead of classic runtime.
+     *
+     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md}
+     */
+    'react/react-in-jsx-scope': 'off',
+
+    /**
+     * Prefers to use default parameters instead of `defaultProps` definition.
+     *
+     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md}
+     */
+    'react/require-default-props': 'off',
+
+    /**
      * Enforces the state initialization style to be with a class property.
      *
      * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md}
      */
-    'react/state-in-constructor': [ 'error', 'never' ]
+    'react/state-in-constructor': [ 'error', 'never' ],
+
+    /**
+     * Enforces where React component static properties should be positioned.
+     *
+     * @see {@link https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/static-property-placement.md}
+     */
+    'react/static-property-placement': [ 'error', 'static public field' ]
 };
