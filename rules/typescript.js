@@ -50,15 +50,6 @@ module.exports = Object.assign(mapExtensionRules({
     ],
 
     /**
-     * Enforces explicit accessibility modifiers on class properties and methods.
-     *
-     * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md}
-     */
-    '@typescript-eslint/explicit-member-accessibility': [ 'error', {
-        accessibility: 'explicit'
-    } ],
-
-    /**
      * Enforces a consistent member delimiter style in interfaces and type literals.
      *
      * @see {@link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-delimiter-style.md}
