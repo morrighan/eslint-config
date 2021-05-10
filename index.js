@@ -38,13 +38,11 @@ module.exports = {
 
         parserOptions: {
             ecmaFeatures: { jsx: true }
-        }
-    }, {
-        files: [ '*.jsx' ],
+        },
+
         rules: rulesForJSX
     }, {
         files: [ '*.ts', '*.tsx' ],
-
         plugins: [ '@typescript-eslint' ],
 
         extends: [
