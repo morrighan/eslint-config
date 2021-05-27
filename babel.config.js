@@ -3,7 +3,7 @@
  * @returns {import('@babel/core').TransformOptions}
  */
 function configureBabel(API) {
-    API.assertVersion('^7.9.0');
+    API.assertVersion('^7.14.0');
     API.cache.never();
 
     return {
